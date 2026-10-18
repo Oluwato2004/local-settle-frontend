@@ -500,40 +500,29 @@ function TradeDashboardInner() {
                                                 <span className="text-[#9BABB7] font-bold text-sm">USD</span>
                                             </div>
                                         </div>
-<<<<<<< HEAD
-                                        {currentUser?.userId === offer.creatorId && (
+{currentUser?.userId === offer.creatorId && (
                                             <span className="mb-2 rounded-full border border-[#55D6BE]/40 px-3 py-1 text-xs text-[#55D6BE]">Your offer</span>
                                         )}
-                                        <button
-                                            disabled={!isVerified || currentUser?.userId === offer.creatorId}
-=======
                                         {inactiveOfferReason(offer) ? (
                                             <p role="status" className="w-full max-w-[220px] rounded-lg border border-amber-500/30 bg-amber-950/20 p-3 text-xs text-amber-200">
                                                 {inactiveOfferReason(offer)}
                                             </p>
-                                        ) : <button
+                                        ) : currentUser?.userId !== offer.creatorId && <button
                                             disabled={!isVerified}
->>>>>>> origin/main
                                             onClick={() => {
-                                                if (currentUser?.userId === offer.creatorId) return;
                                                 if (!isVerified) {
                                                     alert("KYC verification required to trade.");
                                                     return;
                                                 }
                                                 setSelectedOffer(offer);
                                             }}
-                                            className={`w-full max-w-[220px] py-3.5 rounded-xl font-bold text-sm tracking-wide transition-all duration-300 ${isVerified && currentUser?.userId !== offer.creatorId
+                                            className={`w-full max-w-[220px] py-3.5 rounded-xl font-bold text-sm tracking-wide transition-all duration-300 ${isVerified
                                                 ? "bg-[#55D6BE] text-black hover:shadow-[0_0_20px_rgba(85,214,190,0.25)] hover:scale-[1.02] active:scale-[0.98]"
                                                 : "bg-gray-700 text-gray-400 cursor-not-allowed"
                                                 }`}
                                         >
-<<<<<<< HEAD
-                                            {currentUser?.userId === offer.creatorId ? "YOUR OFFER" : tab === "Buy" ? "BUY" : "SELL"}
-                                        </button>
-=======
                                             {tab === "Buy" ? "BUY" : "SELL"}
                                         </button>}
->>>>>>> origin/main
                                     </div>
                                 </div>
                             );
